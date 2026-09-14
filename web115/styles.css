@@ -5,6 +5,7 @@
     margin: 0;
     padding: 16px;
     color: white;
+
 }
 
 body {
@@ -29,6 +30,7 @@ main {
 
 .navbar {
     display: flex;
+    justify-content: center;
 }
 
 .navbar a {
@@ -61,8 +63,12 @@ main {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    display: flex;
+    justify-content: center;
 }
 
 .top-ul li a:hover {
     background-color: #111;
 }
+
+footer {}
