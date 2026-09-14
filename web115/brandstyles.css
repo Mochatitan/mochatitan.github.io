@@ -1,0 +1,107 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: rgb(167, 167, 167);
+}
+
+
+
+.header {
+    background-color: #148d47;
+    color: white;
+    text-align: center;
+    font-family: Verdana;
+    padding: 40px;
+    margin: 0px;
+}
+
+.darkgreen {
+    background-color: #148d47;
+    padding: 35px;
+    border-radius: 10px;
+}
+
+.darkgray p {
+    color: rgb(180, 180, 180);
+}
+
+.darkgray h2 {
+    color: rgb(180, 180, 180);
+}
+
+.lightgray {
+    background-color: rgb(167, 167, 167);
+    padding: 35px;
+    border-radius: 10px;
+}
+
+.darkgray {
+    background-color: #333;
+    padding: 35px;
+    border-radius: 10px;
+}
+
+
+h1 {
+    margin: 0px;
+}
+
+main {
+    background-color: rgb(232, 230, 230);
+    padding: 30px;
+    margin: 30px;
+    border-radius: 15px;
+    font-family: 'Times New Roman';
+}
+
+.goodimages {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    height: auto;
+}
+
+.navbar {
+    display: flex;
+}
+
+.navbar a {
+    text-decoration: none;
+    padding: 15px 20px;
+}
+
+.nav-ul {
+    position: -webkit-sticky;
+    /* Safari */
+    position: sticky;
+    top: 0;
+
+}
+
+.top-ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 5px;
+    overflow: hidden;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-family: Georgia;
+}
+
+.top-ul li {
+    float: left;
+}
+
+.top-ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.top-ul li a:hover {
+    background-color: #111;
+}
