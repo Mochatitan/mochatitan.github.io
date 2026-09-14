@@ -21,14 +21,6 @@ body {
     border-radius: 10px;
 }
 
-.darkgray p {
-    color: rgb(180, 180, 180);
-}
-
-.darkgray h2 {
-    color: rgb(180, 180, 180);
-}
-
 .lightgray {
     background-color: rgb(167, 167, 167);
     padding: 35px;
@@ -39,6 +31,7 @@ body {
     background-color: #333;
     padding: 35px;
     border-radius: 10px;
+    color: rgb(180, 180, 180);
 }
 
 
