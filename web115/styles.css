@@ -58,6 +58,10 @@ main {
     font-style: italic;
 }
 
+#divisible-status {
+    color: red;
+}
+
 .top-ul li {
     float: left;
 }
