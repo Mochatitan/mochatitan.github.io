@@ -24,11 +24,11 @@ function updateGenerator() {
     courses.forEach((course) => {
         let courseQuarters = "Im taking this course during ";
         course[1].forEach((quarter) => {
-            courseQuarters += (quarter + ", ")
+            courseQuarters += (quarter + ", ");
         });
         coursesImTakingHtml += `
         <li><strong>${course[0]}: </strong> ${course[3]}.<br>${courseQuarters} </li>
-        `
+        `;
     });
     coursesImTakingHtml += "</ol>";
     // <ol>
@@ -72,7 +72,7 @@ function updateGenerator() {
         <h2> Quote </h2>
         <i>${favoriteQuote}</i>
         <p> - ${quoteAuthor}</p>
-    `
+    `;
 }
 
 document.getElementById("add-course").addEventListener("click", (event) => {
@@ -126,7 +126,7 @@ document.querySelector("form").addEventListener("submit", (event) => {
     document.querySelectorAll(".courseAdded").forEach((course) => {
         //format is gonna be [courseName, [q1, q3]], false, "explanation"]
         let tempCourseName = course.querySelector('input[name="coursename"]').value;
-        let tempQuarters = Array.from(course.querySelectorAll('input[name="quarters"]:checked')).map(checkbox => checkbox.value);
+        let tempQuarters = Array.from(course.querySelectorAll('input[name="quarters"]:checked')).map((checkbox) => checkbox.value);
         let tempFinished = course.querySelector('input[name="course-finished"]').checked;
         let tempExplanation = course.querySelector('textarea[name="courseexplanation"]').value;
 
