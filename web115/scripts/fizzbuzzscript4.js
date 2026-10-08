@@ -14,7 +14,7 @@ const labelDiv = document.getElementById("labelList");
 function convertFormToArray() {
     const labelsArray = [];
     const labelRows = document.querySelectorAll(".labelAdded");
-    labelRows.forEach(row => {
+    labelRows.forEach((row) => {
         const inputs = row.querySelectorAll("input");
         labelsArray.push([inputs[0].value, inputs[1].value]);
     });
