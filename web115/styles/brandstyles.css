@@ -13,7 +13,18 @@ body {
     font-family: Verdana;
     padding: 40px;
     margin: 0px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
+
+
+
+
+
+
 
 .darkgreen {
     background-color: #148d47;
