@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./scripts/fizzbuzzscript1.js" defer></script>
+    <script src="https://lint.page/kit/880bd5.js" crossorigin="anonymous"></script>
+    <title>LUKES RUSTY SPOTTED CAT - WEB115 - FIZZBUZZ</title>
+</head>
+
+<body>
+    <div data-include="components/header.html"></div>
+
+    <div data-include="components/navbar.html"></div>
+
+    <main>
+        <h2>Fizzbuzz 1</h2>
+        <h3 id='greeting'>Welcome to Anytutor!</h3>
+        <form>
+            <fieldset>
+                <legend>Personal Info</legend>
+                <input type="text" id="first_name" placeholder="Enter your first name">
+                <input type="text" id="middle_initial" placeholder="M" maxlength="1">
+                <input type="text" id="last_name" placeholder="Enter your last name">
+            </fieldset>
+            <fieldset>
+                <legend>Number customization</legend>
+                <input type="number" id="number_count" placeholder="nums to count">
+                <br>
+                <input type="text" id="number_labels" placeholder="how to label">
+                <p>Format for labels should be [default],[multiples, label]</p>
+                <p>The default one will appear if no labels appear, if a number has multiple multiples, it will show
+                    multiple labels in the order given</p>
+                <h4>Example:</h4>
+                <input type="text" readonly value="[wizard],[5, witch]">
+
+            </fieldset>
+            <button type="submit">Submit</button>
+        </form>
+
+        <div id="outputLoop">
+            <h3>Output Loop</h3>
+        </div>
+    </main>
+
+
+    <div data-include="components/footer.html"></div>
+
+
+</body>
+
+</html>
