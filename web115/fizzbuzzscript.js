@@ -2,6 +2,36 @@ let firstName = "john";
 let middleInitial = "t";
 let lastName = "doe";
 
+
+
+
+function evenOrOdd(num) {
+    if (num % 2 === 0) {
+        return "even";
+    } else {
+        return "odd";
+    }
+}
+
+function outputLoop(iterations) {
+    const list = document.createElement("ul");
+
+    let number = 1;
+    const themeWords = ["tutor", "math", "help", "awesome", "sum", "multiplication", "cheap", "virtual", "budget"];
+    while (number <= iterations) {
+        let randomElementOne = themeWords[Math.floor(Math.random() * themeWords.length)];
+        let randomElementTwo = themeWords[Math.floor(Math.random() * themeWords.length)];
+        let item = document.createElement("li");
+        item.textContent = (number + ") " + randomElementOne + " " + randomElementTwo + " - the number is " + evenOrOdd(number));
+        list.append(item);
+        number++;
+    }
+
+    document.getElementById("outputLoop").append(list);
+}
+
+
+
 document.querySelector("form").addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -49,27 +79,3 @@ document.querySelector("form").addEventListener("submit", function (event) {
 });
 
 
-function outputLoop(iterations) {
-    const list = document.createElement("ul");
-
-    let number = 1;
-    const themeWords = ["tutor", "math", "help", "awesome", "sum", "multiplication", "cheap", "virtual", "budget"];
-    while (number <= iterations) {
-        let randomElementOne = themeWords[Math.floor(Math.random() * themeWords.length)];
-        let randomElementTwo = themeWords[Math.floor(Math.random() * themeWords.length)];
-        let item = document.createElement("li");
-        item.textContent = (number + ") " + randomElementOne + " " + randomElementTwo + " - the number is " + evenOrOdd(number));
-        list.append(item);
-        number++;
-    }
-
-    document.getElementById("outputLoop").append(list);
-}
-
-function evenOrOdd(num) {
-    if (num % 2 === 0) {
-        return "even";
-    } else {
-        return "odd";
-    }
-}
