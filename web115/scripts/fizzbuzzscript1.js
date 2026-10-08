@@ -28,7 +28,7 @@ function convertFormToArray() {
     console.log("remaining labels: " + remainingLabels);
 
     labels = [...remainingLabels.matchAll(/\[(\d+),([^\]]+)\]/g)]
-        .map(match => [Number(match[1]), match[2]]);
+        .map((match) => [Number(match[1]), match[2]]);
 
     console.log(labels);
 
