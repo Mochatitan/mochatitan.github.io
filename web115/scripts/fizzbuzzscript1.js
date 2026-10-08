@@ -66,7 +66,7 @@ function outputLoop(iterations) {
         list.append(item);
         document.getElementById("outputLoop").append(list);
         return;
-    };
+    }
 
     while (number <= iterations) {
         let item = document.createElement("li");
