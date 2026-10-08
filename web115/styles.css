@@ -102,3 +102,18 @@ input {
 }
 
 footer {}
+
+#briefintro {}
+
+.courseAdded {
+    padding: 10px;
+
+    background-color: rgb(220, 220, 220);
+    margin-top: 10px;
+
+}
+
+.remove-course {
+    align-self: right;
+
+}
