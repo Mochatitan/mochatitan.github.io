@@ -3,7 +3,7 @@
   https://templatemo.com/tm-630-helix-drift
 */
 
-(function () {
+(function() {
     "use strict";
 
     /* ------------------------------------------------------------------ data */
@@ -44,7 +44,7 @@
     var nodes = stage.querySelectorAll(".plate");
     var N = nodes.length;
 
-    Array.prototype.forEach.call(nodes, function (el, i) {
+    Array.prototype.forEach.call(nodes, function(el, i) {
         var no = (i < 9 ? "0" + (i + 1) : "" + (i + 1));
         var info = el.querySelector(".plate-info");
         var h = info ? info.querySelector("h2") : null;
@@ -75,10 +75,10 @@
         var src = el.dataset.img;
         if (src) {
             var pre = new Image();
-            pre.onload = function () {
+            pre.onload = function() {
                 m.style.backgroundImage = "url('" + pre.src + "')";
             };
-            pre.onerror = function () {
+            pre.onerror = function() {
                 m.style.backgroundImage = fallback(i);
             };
             pre.src = src;
@@ -216,11 +216,11 @@
         var p = PLATES[i];
         clearTimeout(swapTimer);
         capEl.classList.add("swap");
-        swapTimer = setTimeout(function () {
+        swapTimer = setTimeout(function() {
             capNo.textContent = (i < 9 ? "0" + (i + 1) : (i + 1));
             capTitle.textContent = p.t;
             capDesc.textContent = p.d;
-            capMeta.innerHTML = '<a href="' + p.alt + '">LINK TO PROJECT</a>';
+            capMeta.innerHTML = "<span>" + p.alt + "</span><span>" + p.mo + "</span><span>" + p.st + "</span>";
             capEl.classList.remove("swap");
         }, REDUCED ? 0 : 160);
 
@@ -265,20 +265,20 @@
         scrubbing = false;
         try {
             if (e && e.pointerId !== undefined) scrub.releasePointerCapture(e.pointerId);
-        } catch (err) { }
+        } catch (err) {}
         target = Math.round(target);
         kick();
     }
-    scrub.addEventListener("pointerdown", function (e) {
+    scrub.addEventListener("pointerdown", function(e) {
         if (playing) setPlay(false);
         scrubbing = true;
         try {
             scrub.setPointerCapture(e.pointerId);
-        } catch (err) { }
+        } catch (err) {}
         scrubTo(e.clientX);
         e.preventDefault();
     });
-    scrub.addEventListener("pointermove", function (e) {
+    scrub.addEventListener("pointermove", function(e) {
         if (scrubbing) scrubTo(e.clientX);
     });
     scrub.addEventListener("pointerup", endScrub);
@@ -286,10 +286,10 @@
     scrub.addEventListener("lostpointercapture", endScrub);
     window.addEventListener("pointerup", endScrub);
     window.addEventListener("blur", endScrub);
-    scrub.addEventListener("dragstart", function (e) {
+    scrub.addEventListener("dragstart", function(e) {
         e.preventDefault();
     });
-    scrub.addEventListener("keydown", function (e) {
+    scrub.addEventListener("keydown", function(e) {
         var k = e.key;
         if (k === "ArrowLeft" || k === "ArrowDown") {
             target = Math.round(target) - 1;
@@ -335,7 +335,7 @@
         stage.classList.add("grabbing");
         try {
             stage.setPointerCapture(e.pointerId);
-        } catch (err) { }
+        } catch (err) {}
     }
 
     function onMove(e) {
@@ -359,7 +359,7 @@
         stage.classList.remove("grabbing");
         try {
             if (e && e.pointerId !== undefined) stage.releasePointerCapture(e.pointerId);
-        } catch (err) { }
+        } catch (err) {}
         var flick = -vel * 0.34;
         flick = Math.max(-2.2, Math.min(2.2, flick));
         target = Math.round(target + flick);
@@ -372,17 +372,17 @@
     stage.addEventListener("lostpointercapture", onUp);
     window.addEventListener("pointerup", onUp);
     window.addEventListener("blur", onUp);
-    stage.addEventListener("dragstart", function (e) {
+    stage.addEventListener("dragstart", function(e) {
         e.preventDefault();
     });
 
-    stage.addEventListener("wheel", function (e) {
+    stage.addEventListener("wheel", function(e) {
         var raw = (Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY) * 0.0032;
         raw = Math.max(-0.9, Math.min(0.9, raw));
         target += raw;
         kick();
         clearTimeout(stage._wt);
-        stage._wt = setTimeout(function () {
+        stage._wt = setTimeout(function() {
             target = Math.round(target);
             kick();
         }, 170);
@@ -392,13 +392,13 @@
     });
 
     /* -------------------------------------------------------- plate actions */
-    plates.forEach(function (p, i) {
-        p.el.addEventListener("click", function () {
+    plates.forEach(function(p, i) {
+        p.el.addEventListener("click", function() {
             if (moved) return;
             var d = ((i - pos + N / 2 + N * 2) % N) - N / 2;
             if (Math.abs(d) < 0.5) {
                 p.el.classList.add("press");
-                setTimeout(function () {
+                setTimeout(function() {
                     p.el.classList.remove("press");
                 }, 140);
                 return;
@@ -406,13 +406,13 @@
             target = Math.round(pos + d);
             kick();
         });
-        p.el.addEventListener("keydown", function (e) {
+        p.el.addEventListener("keydown", function(e) {
             if (e.key !== "Enter" && e.key !== " " && e.key !== "Spacebar") return;
             e.preventDefault();
             var d = ((i - pos + N / 2 + N * 2) % N) - N / 2;
             if (Math.abs(d) < 0.5) {
                 p.el.classList.add("press");
-                setTimeout(function () {
+                setTimeout(function() {
                     p.el.classList.remove("press");
                 }, 140);
             } else {
@@ -420,7 +420,7 @@
                 kick();
             }
         });
-        p.el.addEventListener("focus", function () {
+        p.el.addEventListener("focus", function() {
             var d = ((i - pos + N / 2 + N * 2) % N) - N / 2;
             if (Math.abs(d) > 0.5) {
                 target = Math.round(pos + d);
@@ -429,7 +429,7 @@
         });
     });
 
-    document.addEventListener("keydown", function (e) {
+    document.addEventListener("keydown", function(e) {
         if (e.target && /INPUT|TEXTAREA/.test(e.target.tagName)) return;
         if (e.key === "ArrowLeft") {
             target = Math.round(target) - 1;
@@ -449,7 +449,7 @@
 
     var DUR_MIN = 1,
         DUR_MAX = 9;
-    var dur = 5,
+    var dur = 2,
         playing = false,
         tStart = 0,
         tRaf = 0;
@@ -488,17 +488,17 @@
         else tpFill.style.width = "0%";
     }
 
-    tpBtn.addEventListener("click", function () {
+    tpBtn.addEventListener("click", function() {
         setPlay(!playing);
     });
-    tpMinus.addEventListener("click", function () {
+    tpMinus.addEventListener("click", function() {
         setDur(dur - 1);
     });
-    tpPlus.addEventListener("click", function () {
+    tpPlus.addEventListener("click", function() {
         setDur(dur + 1);
     });
 
-    document.addEventListener("visibilitychange", function () {
+    document.addEventListener("visibilitychange", function() {
         if (!playing) return;
         if (document.hidden) {
             cancelAnimationFrame(tRaf);
@@ -508,7 +508,7 @@
         }
     });
 
-    setDur(5);
+    setDur(2);
     /* winds on load, change to setPlay(false) to start paused.
        REDUCED is honoured here so auto advancing motion never starts
        for someone who asked the OS for reduced motion */
@@ -549,9 +549,9 @@
         readVars();
         render();
     }
-    [sRx, sRy, sFall].forEach(function (el) {
+    [sRx, sRy, sFall].forEach(function(el) {
         fill(el);
-        el.addEventListener("input", function () {
+        el.addEventListener("input", function() {
             fill(el);
             applyVars();
         });
@@ -564,10 +564,10 @@
         if (open && focusIn) sRx.focus();
         if (!open && focusIn) fab.focus();
     }
-    fab.addEventListener("click", function () {
+    fab.addEventListener("click", function() {
         setControl(true, true);
     });
-    closeBtn.addEventListener("click", function () {
+    closeBtn.addEventListener("click", function() {
         setControl(false, true);
     });
     setControl(false, false);
@@ -582,22 +582,22 @@
         burger.setAttribute("aria-expanded", open ? "true" : "false");
         burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
     }
-    burger.addEventListener("click", function () {
+    burger.addEventListener("click", function() {
         setDrawer(!drawer.classList.contains("open"));
     });
-    drawer.addEventListener("click", function (e) {
+    drawer.addEventListener("click", function(e) {
         if (e.target.tagName === "A") setDrawer(false);
     });
 
-    document.addEventListener("keydown", function (e) {
+    document.addEventListener("keydown", function(e) {
         if (e.key !== "Escape") return;
         if (drawer.classList.contains("open")) setDrawer(false);
         else if (panel.classList.contains("open")) setControl(false, true);
     });
 
     /* ---------------------------------------------------------- reveal, fit */
-    var io = new IntersectionObserver(function (ents) {
-        ents.forEach(function (en) {
+    var io = new IntersectionObserver(function(ents) {
+        ents.forEach(function(en) {
             if (en.isIntersecting) {
                 en.target.classList.add("in");
                 io.unobserve(en.target);
@@ -608,12 +608,12 @@
     });
     var rvs = document.querySelectorAll(".rv");
     for (var r = 0; r < rvs.length; r++) io.observe(rvs[r]);
-    setTimeout(function () {
+    setTimeout(function() {
         for (var r2 = 0; r2 < rvs.length; r2++) rvs[r2].classList.add("in");
     }, 3000);
 
     /* controls leave once the stage is half scrolled away, not at the very end of it */
-    var stageIO = new IntersectionObserver(function (ents) {
+    var stageIO = new IntersectionObserver(function(ents) {
         document.body.classList.toggle("away", ents[0].intersectionRatio < 0.5);
     }, {
         threshold: [0, .25, .5, .75, 1]
@@ -621,9 +621,9 @@
     stageIO.observe(stage);
 
     var rt = 0;
-    window.addEventListener("resize", function () {
+    window.addEventListener("resize", function() {
         clearTimeout(rt);
-        rt = setTimeout(function () {
+        rt = setTimeout(function() {
             readVars();
             readRange();
             render();
