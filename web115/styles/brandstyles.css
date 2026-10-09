@@ -91,7 +91,7 @@ main {
     background-color: #333;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 0px;
     font-family: Georgia;
 }
 

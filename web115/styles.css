@@ -68,9 +68,29 @@ input {
 .top-ul {
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding: 5px;
     overflow: hidden;
     background-color: #333;
+    display: flex;
+    justify-content: center;
+    gap: 0px;
+    font-family: Georgia;
+}
+
+.top-ul li {
+    float: left;
+}
+
+.top-ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.top-ul li a:hover {
+    background-color: #111;
 }
 
 #credits {
@@ -82,24 +102,6 @@ input {
     color: red;
 }
 
-.top-ul li {
-    float: left;
-}
-
-
-.top-ul li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-}
-
-.top-ul li a:hover {
-    background-color: #111;
-}
 
 footer {}
 
