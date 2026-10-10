@@ -149,3 +149,25 @@ document.querySelector("form").addEventListener("submit", function (event) {
     outputLoop(numsToCount);
 
 });
+
+
+let num1 = 100;
+let num2 = 50;
+
+
+
+
+document.getElementById("divisible-checker").addEventListener("input", function (event) {
+    event.preventDefault();
+    num1 = document.getElementById("num1").value;
+    num2 = document.getElementById("num2").value;
+    if (multipleOf(num1, num2)) {
+        document.getElementById("divisible-status").textContent = "True";
+        document.getElementById("divisible-status").style.color = "green";
+    } else {
+        document.getElementById("divisible-status").textContent = "False";
+        document.getElementById("divisible-status").style.color = "red";
+    }
+
+});
+
